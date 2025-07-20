@@ -10,25 +10,26 @@
 * [helm](https://helm.sh/docs/intro/install)
 * [kustomize](https://kubectl.docs.kubernetes.io/installation/kustomize)
 * [argocd](https://argo-cd.readthedocs.io/en/stable/cli_installation)
+* [kind](https://kind.sigs.k8s.io/docs/user/quick-start/#installation)
 * [envsubst](https://www.baeldung.com/linux/envsubst-command) (should already be present in your linux system)
 
 ### Getting Started
 
-Create local cluster with [k3s](https://k3s.io/), [ingress-nginx](https://kubernetes.github.io/ingress-nginx) and [argocd](https://argo-cd.readthedocs.io/en/stable):
+Create local cluster with [Kind](https://kind.sigs.k8s.io/), [ingress-nginx](https://kubernetes.github.io/ingress-nginx) and [argocd](https://argo-cd.readthedocs.io/en/stable):
 
 ```bash
-make start-k3s
+make start-kind
 ```
 
-Remove & uninstall [k3s](https://k3s.io/):
+Remove & delete Kind cluster:
 
 ```bash
-make delete-k3s
+make delete-kind
 ```
 
 ### ArgoCD
 
-* [http://argo-local.cloud-diplomats.com](http://argo-local.cloud-diplomats.com/) - login: admin, password: see `make start-k3s` logs
+* [http://argo-local.cloud-diplomats.com](http://argo-local.cloud-diplomats.com/) - login: admin, password: see `make start-kind` logs
 
 ### Apps-of-Apps
 
@@ -44,4 +45,4 @@ make delete-k3s
 
 ## Limitations
 
-Wifi router can block some port and leave k3s without stable communication. If you want to make sure there is none, try using your 4G network.
+Wifi router can block some ports and leave Kind without stable communication. If you encounter issues, consider trying a different network or checking local firewall settings.
